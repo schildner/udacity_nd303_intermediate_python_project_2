@@ -5,7 +5,8 @@ from .QuoteModel import QuoteModel
 
 
 class TextIngestor(IngestorInterface):
-    """Ingestor for Docx files."""
+    """Ingestor for txt files."""
+
     ingestable_extensions = ['txt']
 
     @classmethod

@@ -12,8 +12,8 @@ class IngestorInterface(ABC):
         ingestable_extensions (List[str]): File extensions that can be ingested.
 
     Methods:
-        can_ingest(path: str) -> bool: Checks if a file with the given path can be ingested.
-        parse(path: str) -> List[QuoteModel]: Parses a file with the given path and QuoteModel objects.
+        can_ingest(path: str) -> bool: Check if a file with the given path can be ingested.
+        parse(path: str) -> List[QuoteModel]: Parse a file with the given path and QuoteModel objects.
     """
 
     ingestable_extensions = []
@@ -21,12 +21,12 @@ class IngestorInterface(ABC):
     @classmethod
     def can_ingest(cls, path: str) -> bool:
         """
-        Checks if a file with the given path can be ingested.
+        Check if a file with the given path can be ingested.
 
         Args:
             path (str): The path of the file to check.
 
-        Returns:
+        Return:
             bool: True if the file can be ingested, False otherwise.
         """
         file_extension = path.split('.')[-1]
@@ -36,12 +36,12 @@ class IngestorInterface(ABC):
     @abstractmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """
-        Parses a file with the given path and returns a list of QuoteModel objects.
+        Parse a file with the given path and returns a list of QuoteModel objects.
 
         Args:
             path (str): The path of the file to parse.
 
-        Returns:
+        Return:
             List[QuoteModel]: A list of QuoteModel objects extracted from the file.
         """
         pass

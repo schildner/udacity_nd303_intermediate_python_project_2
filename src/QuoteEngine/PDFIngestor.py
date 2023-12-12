@@ -10,6 +10,8 @@ from .QuoteModel import QuoteModel
 
 
 class PDFIngestor(IngestorInterface):
+    """Ingestor for PDF files."""
+
     ingestable_extensions = ['pdf']
 
     @classmethod
