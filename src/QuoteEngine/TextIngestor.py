@@ -5,10 +5,12 @@ from .QuoteModel import QuoteModel
 
 
 class TextIngestor(IngestorInterface):
+    """Ingestor for Docx files."""
     ingestable_extensions = ['txt']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
+        """Parse the txt file at the given path and return a list of QuoteModel objects."""
         quotes = []
         with open(path, 'r') as f:
             for line in f.readlines():

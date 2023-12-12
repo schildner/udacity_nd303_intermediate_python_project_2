@@ -21,20 +21,19 @@ class PDFIngestor(IngestorInterface):
         tmp = f'./tmp/{random.randint(0,1000000)}.txt'
         subprocess.call(['pdftotext', path, tmp])
 
-        file_ref = open(tmp, "r")
-        quotes = []
-        for line in file_ref.readlines():
-            line = line.strip('\n\r').strip()
-            if len(line) > 0:
-                # Two groups: quote and author
-                # quote is in double quotes - extracting without quotes
-                # author is one or more words
-                regex_pattern = r'"(.*?)"\s*-\s*(\w+\s*\w*)'
-                tuples = re.findall(regex_pattern, line)
-                for quote, author in tuples:
-                    new_quote = QuoteModel(quote.strip(), author.strip())
-                    quotes.append(new_quote)
+        with open(tmp, "r") as f:
+            quotes = []
+            for line in f.readlines():
+                line = line.strip('\n\r').strip()
+                if len(line) > 0:
+                    # Two groups: quote and author
+                    # quote is in double quotes - extracting without quotes
+                    # author is one or more words
+                    regex_pattern = r'"(.*?)"\s*-\s*(\w+\s*\w*)'
+                    tuples = re.findall(regex_pattern, line)
+                    for quote, author in tuples:
+                        new_quote = QuoteModel(quote.strip(), author.strip())
+                        quotes.append(new_quote)
 
-        file_ref.close()
         os.remove(tmp)
         return quotes
