@@ -2,7 +2,7 @@ from random import randint
 from PIL import Image, ImageDraw, ImageFont
 
 
-class MemeGenerator():
+class MemeEngine():
     """A meme generator."""
 
     def __init__(self, output_dir='memes'):
