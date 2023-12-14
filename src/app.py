@@ -47,7 +47,6 @@ quotes, imgs = setup()
 def meme_rand():
     """ Generate a random meme """
 
-    # @TODO:
     # Use the random python standard library class to:
     # 1. select a random image from imgs array
     # 2. select a random quote from the quotes array
@@ -59,7 +58,6 @@ def meme_rand():
     print(f"Quote: {quote}")
 
     path = meme.make_meme(img, quote.body, quote.author)
-    # path = "tmp/132752.jpg"
     return render_template('meme.html', path=path)
 
 
