@@ -24,13 +24,14 @@ class MemeEngine():
         img = img.crop((0, 0, width, new_height))
 
         draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype('./fonts/LilitaOne-Regular.ttf', size=20)
+        font_text = ImageFont.truetype('./MemeGenerator/.fonts/LilitaOne-Regular.ttf', size=40)
+        font_author = ImageFont.truetype('./MemeGenerator/.fonts/LilitaOne-Regular.ttf', size=20)
 
         if text is not None:
-            draw.text((10, 30), text, font=font, fill='white')
+            draw.text((10, 30), text, font=font_text, fill='white')
 
         if author is not None:
-            draw.text((10, 60), text, font=font, fill='yellow')
+            draw.text((10, 100), author, font=font_author, fill='yellow')
 
         meme_path = f'./{self.output_dir}/{randint(0,1000000)}.jpg'
         img.save(meme_path)
