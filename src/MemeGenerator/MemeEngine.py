@@ -33,6 +33,7 @@ class MemeEngine():
         if author is not None:
             draw.text((10, 100), author, font=font_author, fill='yellow')
 
+        print(f"Saving meme to {self.output_dir}")
         meme_path = f'./{self.output_dir}/{randint(0,1000000)}.jpg'
         img.save(meme_path)
         return meme_path
