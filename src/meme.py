@@ -1,7 +1,9 @@
 import os
 import random
+import argparse
 
-# @TODO Import your Ingestor and MemeEngine classes
+from MemeEngine import MemeEngine
+from QuoteEngine import Ingestor, QuoteModel
 
 
 def generate_meme(path=None, body=None, author=None):
@@ -40,9 +42,13 @@ def generate_meme(path=None, body=None, author=None):
 
 
 if __name__ == "__main__":
-    # @TODO Use ArgumentParser to parse the following CLI arguments
-    # path - path to an image file
-    # body - quote body to add to the image
-    # author - quote author to add to the image
-    args = None
+    parser = argparse.ArgumentParser(description='Generate a meme.')
+    parser.add_argument('path', type=str,
+                        help="Path to an image file.")
+    parser.add_argument('body', type=str,
+                        help="Quote body to add to the image.")
+    parser.add_argument('author', type=str,
+                        help="Quote author to add to the image.")
+    args = parser.parse_args()
+
     print(generate_meme(args.path, args.body, args.author))
