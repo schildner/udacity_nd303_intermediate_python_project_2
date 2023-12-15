@@ -1,12 +1,8 @@
-
-"""
-This module provides a MemeEngine class for generating memes.
-
-The MemeEngine class allows users to create meme images by adding text and author information to an input image.
-"""
+"""This module provides a MemeEngine class for generating memes."""
 
 from random import randint
 from PIL import Image, ImageDraw, ImageFont
+
 
 class MemeEngine():
     """A meme generator."""

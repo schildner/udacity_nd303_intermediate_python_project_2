@@ -1,3 +1,5 @@
+"""This module defines the IngestorIntefrace class."""
+
 from typing import List
 from abc import ABC, abstractmethod
 

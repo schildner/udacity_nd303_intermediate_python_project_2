@@ -1,3 +1,7 @@
+
+"""This module defines the QuoteModel class which represents a quote with a body and an author."""
+
+
 class QuoteModel():
     """Represents a quote with a body and an author."""
 

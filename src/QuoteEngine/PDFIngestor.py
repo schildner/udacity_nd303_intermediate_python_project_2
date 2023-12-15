@@ -1,3 +1,5 @@
+"""This module defines the PDFIngestor class."""
+
 import os
 import subprocess
 import random

@@ -1,3 +1,5 @@
+"""This module provides functionality for generating memes using images and quotes."""
+
 import os
 import random
 import argparse

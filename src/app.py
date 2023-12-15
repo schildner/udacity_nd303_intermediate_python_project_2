@@ -1,3 +1,10 @@
+
+"""
+This module contains the Flask application for a meme generator.
+
+It includes routes for generating random memes and creating user-defined memes.
+"""
+
 import random
 import os
 import requests

@@ -1,3 +1,5 @@
+"""This module defines the CSVIngestor class."""
+
 import pandas as pd
 from typing import List
 

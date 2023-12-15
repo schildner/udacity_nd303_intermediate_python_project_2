@@ -1,3 +1,5 @@
+"""This module defines the Ingestor class."""
+
 from typing import List
 
 from .IngestorInterface import IngestorInterface

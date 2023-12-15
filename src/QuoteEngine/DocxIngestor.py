@@ -1,3 +1,5 @@
+"""This module defines the DocxIngestor class."""
+
 import docx
 from typing import List
 
