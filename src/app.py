@@ -91,7 +91,10 @@ def meme_post():
     download_image(image_url, tmp_src_image)
 
     path = meme.make_meme(tmp_src_image, quote_text, quote_author)
-    os.remove(tmp_src_image)
+    if path is None:
+        abort(500)
+    else:
+        os.remove(tmp_src_image)
 
     return render_template('meme.html', path=path)
 

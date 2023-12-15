@@ -1,5 +1,6 @@
 """This module provides a MemeEngine class for generating memes."""
 
+import os
 from random import randint
 from PIL import Image, ImageDraw, ImageFont
 
@@ -16,7 +17,29 @@ class MemeEngine():
         """
         self.output_dir = output_dir
 
-    def make_meme(self, img_path, text, author, width=500) -> str:
+    def save(self, img, path) -> None:
+        """Save the meme image in the path directory and return the new image path."""
+        if not os.path.exists(os.path.dirname(path)):
+            try:
+                os.makedirs(os.path.dirname(path))
+            except OSError as e:
+                print(e)
+
+        try:
+            img.save(path)
+        except PermissionError as e:
+            print(f"Unable to save image as write access was denied for {path}: {e}")
+            return None
+        except FileNotFoundError as e:
+            print(f"Unable to save image as target directory doesnt exist {path}: {e}")
+            return None
+        except OSError as e:
+            print(f"Unable to save image at {path}: {e}")
+            return None
+
+        return path
+
+    def make_meme(self, img_path, text, author, width=500) -> str | None:
         """
         Create a meme image with specified width and including text & author.
 
@@ -53,6 +76,6 @@ class MemeEngine():
             draw.text((10, 100), author, font=font_author, fill='yellow')
 
         print(f"Saving meme to {self.output_dir}")
-        meme_path = f'./{self.output_dir}/{randint(0,1000000)}.jpg'
-        img.save(meme_path)
+        target_path = f'./{self.output_dir}/{randint(0,1000000)}.jpg'
+        meme_path = self.save(img, target_path)
         return meme_path
