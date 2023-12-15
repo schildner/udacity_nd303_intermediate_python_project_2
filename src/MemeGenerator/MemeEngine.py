@@ -72,7 +72,6 @@ class MemeEngine():
 
         if author is not None:
             # Add author text to the meme image
-            draw.text((10, 60), author, font=font_author, fill='white')
             draw.text((10, 100), author, font=font_author, fill='yellow')
 
         print(f"Saving meme to {self.output_dir}")
