@@ -5,12 +5,20 @@ from PIL import Image, ImageDraw, ImageFont
 class MemeEngine():
     """A meme generator."""
 
-    def __init__(self, output_dir='memes'):
+    def __init__(self, output_dir='static'):
+        """
+        Initialize the MemeEngine object.
+
+        Args:
+            output_dir (str): Directory to save the generated memes. Defaults to 'static'.
+        """
         self.output_dir = output_dir
 
     def make_meme(self, img_path, text, author, width=500) -> str:
-        """Create a meme image with specified width and including text & author.
+        """
+        Create a meme image with specified width and including text & author.
 
+        Args:
             str -- the file path to the output image.
         """
         img = Image.open(img_path)
