@@ -24,8 +24,9 @@ class MemeEngine():
         img = img.crop((0, 0, width, new_height))
 
         draw = ImageDraw.Draw(img)
-        font_text = ImageFont.truetype('./MemeGenerator/.fonts/LilitaOne-Regular.ttf', size=40)
-        font_author = ImageFont.truetype('./MemeGenerator/.fonts/LilitaOne-Regular.ttf', size=20)
+        font_file_path = './MemeGenerator/.fonts/LilitaOne-Regular.ttf'
+        font_text = ImageFont.truetype(font_file_path, size=40)
+        font_author = ImageFont.truetype(font_file_path, size=20)
 
         if text is not None:
             draw.text((10, 30), text, font=font_text, fill='white')
