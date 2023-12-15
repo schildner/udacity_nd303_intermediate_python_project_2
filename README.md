@@ -9,36 +9,49 @@ This project is part of the Udacity Nanodegree: Intermediate Python. The goal of
 
 ## Project Structure
 
-The project is structured in the following way:
+The project has the following structure:
 
-```bash
-├── README.md
-├── _data
-│   ├── DogQuotes
-│   │   ├── DogQuotesCSV.csv
-│   │   ├── DogQuotesDOCX.docx
-│   │   ├── DogQuotesPDF.pdf
-│   │   └── DogQuotesTXT.txt
-│   ├── photos
-│   │   └── dog
-│   │       ├── dog1.jpg
-│   │       ├── dog2.jpg
-│   │       ├── dog3.jpg
-│   │       └── dog4.jpg
-|   ├── SimpleLines
-│   │   ├── SimpleLinesCSV.csv
-│   │   ├── SimpleLinesDOCX.docx
-│   │   ├── SimpleLinesPDF.pdf
-│   │   └── SimpleLinesTXT.txt
-│   └── templates
-│       ├── base.html
-│       ├── meme_form.html
-│       └── meme.html
-├── app.py
-├── meme.py
-├── requirements.txt
-└── .gitignore
-```
+- `app.py`: Main entry point of our application. It sets up our Flask application and routes.
+- `meme.py`: This module is responsible for generating memes.
+- `requirements.txt`: List of Python (sub-)dependencies the project needs in order to run.
+- `.gitignore`: This file tells git which files it should ignore.
+
+The `templates` directory contains HTML templates for the Flask application:
+
+- `base.html`: This is the base template that other templates extend.
+- `meme_form.html`: This template contains a form that users can use to create a meme.
+- `meme.html`: This template displays a generated meme.
+
+### Python Modules
+
+- `MemeGenerator`: This module is responsible for generating memes. It takes an image path, a quote body, and a quote author as input, draws the quote text onto the image, and saves the result.
+
+    Example usage:
+
+    ```python
+    from MemeGenerator import MemeGenerator
+
+    meme = MemeGenerator('output_path')
+    meme.make_meme('input_image.jpg', 'quote text', 'quote author')
+    ```
+
+- `QuoteEngine`: This module is responsible for loading quotes from a variety of file types. It includes a `QuoteModel` class for representing quotes and an `Ingestor` class for loading quotes.
+
+    Example usage:
+
+    ```python
+    from QuoteEngine import Ingestor, QuoteModel
+
+    quotes = Ingestor.parse('quotes.csv')
+    quote = QuoteModel('quote body', 'quote author')
+    ```
+
+## Dependencies
+
+This project uses the following dependencies:
+
+- Flask: A lightweight web application framework.
+- Pillow: A Python Imaging Library used for opening, manipulating, and saving images.
 
 ## Installation
 
@@ -77,11 +90,12 @@ optional arguments:
 To use the web application, you need to run the following command:
 
 ```bash
-python3 app.py
+FLASK_APP=app.py
+flask run
 ```
 
-Then, you can access the web application on your browser at the following address: http://
+This will start a Flask development server. A meme can be created by navigating to [http://localhost:5000/](http://localhost:5000) in a web browser and filling out the form.
 
 ## Acknowledgments
 
-* Starter code: [Udacity](https://www.udacity.com/) - see the initial commit on main branch.
+- Starter code: [Udacity](https://www.udacity.com/) - see the initial commit on main branch.

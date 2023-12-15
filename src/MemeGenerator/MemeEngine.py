@@ -1,6 +1,12 @@
+
+"""
+This module provides a MemeEngine class for generating memes.
+
+The MemeEngine class allows users to create meme images by adding text and author information to an input image.
+"""
+
 from random import randint
 from PIL import Image, ImageDraw, ImageFont
-
 
 class MemeEngine():
     """A meme generator."""
@@ -19,7 +25,13 @@ class MemeEngine():
         Create a meme image with specified width and including text & author.
 
         Args:
-            str -- the file path to the output image.
+            img_path (str): The file path to the input image.
+            text (str): The text to be added to the meme image.
+            author (str): The author to be added to the meme image.
+            width (int): The width of the meme image. Defaults to 500.
+
+        Returns:
+            str: The file path to the generated meme image.
         """
         img = Image.open(img_path)
         original_width, original_height = img.size
@@ -40,6 +52,8 @@ class MemeEngine():
             draw.text((10, 30), text, font=font_text, fill='white')
 
         if author is not None:
+            # Add author text to the meme image
+            draw.text((10, 60), author, font=font_author, fill='white')
             draw.text((10, 100), author, font=font_author, fill='yellow')
 
         print(f"Saving meme to {self.output_dir}")
