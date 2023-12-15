@@ -1,8 +1,8 @@
 """This module provides functionality for generating memes using images and quotes."""
 
+import argparse
 import os
 import random
-import argparse
 
 from MemeGenerator import MemeEngine
 from QuoteEngine import Ingestor, QuoteModel
